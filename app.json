@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "name": "BibleReader",
+    "slug": "bible-reader",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "automatic",
+    "android": {
+      "package": "com.josiahlian7.biblereader"
+    }
+  }
+}
