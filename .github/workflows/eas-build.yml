@@ -28,7 +28,7 @@ jobs:
           token: ${{ secrets.EXPO_TOKEN }}
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: Link EAS project
         run: eas init --account josiahlign --force --non-interactive
