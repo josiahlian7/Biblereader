@@ -30,8 +30,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Link EAS project
-        run: eas init --account josiahlign --force --non-interactive
+      - name: Link EAS project. 
+        run: eas init --force --non-interactive
 
       - name: Build Android APK
         run: eas build --platform android --profile preview --non-interactive --no-wait
