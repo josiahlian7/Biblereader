@@ -16,7 +16,7 @@ const BOOKS = [
 
 const BOOK_ICONS = {Genesis:"◈",Psalms:"♫",Proverbs:"✦",Isaiah:"✧",Matthew:"✝",John:"♡",Acts:"⌁",Romans:"R",Revelation:"Ω"};
 const KEY = (book, chapter) => `${book} ${chapter}`;
-const bookFile = book => encodeURIComponent(book);
+const bookFile = book => encodeURIComponent(book.toLowerCase().replace(/\s+/g,"-"));
 const ALL_CHAPTERS = BOOKS.flatMap(b => Array.from({length:b.chapters}, (_,i)=>({book:b.name,chapter:i+1})));
 const GOSPEL_PLAN = ["Matthew","Mark","Luke","John"].flatMap(book => {const b=BOOKS.find(x=>x.name===book);return Array.from({length:b.chapters},(_,i)=>({book,chapter:i+1}));});
 const DAILY = [
