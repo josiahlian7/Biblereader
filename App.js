@@ -1,7 +1,7 @@
 import React, {useEffect, useMemo, useState} from "react";
 import {
   SafeAreaView, View, Text, Pressable, FlatList, StyleSheet, TextInput,
-  ScrollView, ActivityIndicator, Alert, useColorScheme, Modal, Share, Linking
+  ScrollView, ActivityIndicator, Alert, useColorScheme, Modal, Share, Linking, Backhandler 
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {StatusBar} from "expo-status-bar";
