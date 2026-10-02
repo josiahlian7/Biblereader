@@ -46,7 +46,7 @@ export default function App(){
   const dailyIndex=(()=>{const now=new Date();const start=new Date(now.getFullYear(),0,0);return Math.floor((now-start)/86400000)%DAILY.length;})();
   const dailyRef=DAILY[dailyIndex];
 
-  useEffect(()=>{(async()=>{try{const saved=await AsyncStorage.getItem(STORE);if(saved){const d=JSON.parse(saved);setBookmarks(d.bookmarks||[]);setHighlights(d.highlights||{});setNotes(d.notes||{});setHistory(d.history||[]);setFontSize(d.fontSize||19);setDark(d.dark??systemDark);setBook(d.book||"John");setChapter(d.chapter||3);setPlan(d.plan||"gospel");setPlanDay(d.planDay||1);}}}catch{}})();},[]);
+  useEffect(()=>{(async()=>{try{const saved=await AsyncStorage.getItem(STORE);if(saved){const d=JSON.parse(saved);setBookmarks(d.bookmarks||[]);setHighlights(d.highlights||{});setNotes(d.notes||{});setHistory(d.history||[]);setFontSize(d.fontSize||19);setDark(d.dark??systemDark);setBook(d.book||"John");setChapter(d.chapter||3);setPlan(d.plan||"gospel");setPlanDay(d.planDay||1);}}catch{}})();},[]);
   useEffect(()=>{AsyncStorage.setItem(STORE,JSON.stringify({bookmarks,highlights,notes,history,fontSize,dark,book,chapter,plan,planDay})).catch(()=>{});},[bookmarks,highlights,notes,history,fontSize,dark,book,chapter,plan,planDay]);
   useEffect(()=>{loadChapter(book,chapter);},[book,chapter]);
   useEffect(()=>{loadDaily();},[]);
