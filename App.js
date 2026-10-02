@@ -47,6 +47,14 @@ export default function App(){
   const dailyRef=DAILY[dailyIndex];
 
   useEffect(()=>{(async()=>{try{const saved=await AsyncStorage.getItem(STORE);if(saved){const d=JSON.parse(saved);setBookmarks(d.bookmarks||[]);setHighlights(d.highlights||{});setNotes(d.notes||{});setHistory(d.history||[]);setFontSize(d.fontSize||19);setDark(d.dark??systemDark);setBook(d.book||"John");setChapter(d.chapter||3);setPlan(d.plan||"gospel");setPlanDay(d.planDay||1);}}catch{}})();},[]);
+  useEffect(()=>{
+  const sub=BackHandler.addEventListener("hardwareBackPress",()=>{
+    if(picker){setPicker(false);return true;}
+    if(screen!=="home"){setScreen("home");return true;}
+    return false;
+  });
+  return ()=>sub.remove();
+},[screen,picker]);
   useEffect(()=>{AsyncStorage.setItem(STORE,JSON.stringify({bookmarks,highlights,notes,history,fontSize,dark,book,chapter,plan,planDay})).catch(()=>{});},[bookmarks,highlights,notes,history,fontSize,dark,book,chapter,plan,planDay]);
   useEffect(()=>{loadChapter(book,chapter);},[book,chapter]);
   useEffect(()=>{loadDaily();},[]);
