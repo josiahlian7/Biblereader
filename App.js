@@ -6,7 +6,7 @@ import {
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {StatusBar} from "expo-status-bar";
 
-const API = "https://bible-api.com;
+const API = "https://bible-api.com";
 const STORE = "bible-reader-v4";
 const MAX_HISTORY = 60;
 
